@@ -1,0 +1,122 @@
+/* $Id$ */
+
+span.ansi.h0.f30
+{
+  color: #000;
+}
+span.ansi.h0.f31
+{
+  color: #900;
+}
+span.ansi.h0.f32
+{
+  color: #090;
+}
+span.ansi.h0.f33
+{
+  color: #990;
+}
+span.ansi.h0.f34
+{
+  color: #009;
+}
+span.ansi.h0.f35
+{
+  color: #909;
+}
+span.ansi.h0.f36
+{
+  color: #099;
+}
+span.ansi.h0.f37,
+span.ansi.h0.f39
+{
+  color: #bbb;
+}
+span.ansi.h1.f30,
+span.ansi.h1.f50
+{
+  color: #666;
+}
+span.ansi.h1.f31,
+span.ansi.h1.f51
+{
+  color: #f00;
+}
+span.ansi.h1.f32,
+span.ansi.h1.f52
+{
+  color: #0f0;
+}
+span.ansi.h1.f33,
+span.ansi.h1.f53
+{
+  color: #ff0;
+}
+span.ansi.h1.f34,
+span.ansi.h1.f54
+{
+  color: #00f;
+}
+span.ansi.h1.f35,
+span.ansi.h1.f55
+{
+  color: #f0f;
+}
+span.ansi.h1.f36,
+span.ansi.h1.f56
+{
+  color: #0ff;
+}
+span.ansi.h1.f37,
+span.ansi.h1.f57,
+span.ansi.h1.f39,
+span.ansi.h1.f59
+{
+  color: #fff;
+}
+
+span.ansi.b40,
+span.ansi.b49
+{
+  background-color: #000;
+}
+
+span.ansi.b41
+{
+  background-color: #600;
+}
+
+span.ansi.b42
+{
+  background-color: #060;
+}
+
+span.ansi.b43
+{
+  background-color: #660;
+}
+
+span.ansi.b44
+{
+  background-color: #006;
+}
+
+span.ansi.b45
+{
+  background-color: #606;
+}
+
+span.ansi.b46
+{
+  background-color: #066;
+}
+
+span.ansi.b47
+{
+  background-color: #666;
+}
+
+span.ansi.b48
+{
+}

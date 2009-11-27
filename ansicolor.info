@@ -1,0 +1,4 @@
+; $Id$
+name = ANSI Color
+description = Converts ANSI colors into more web friendly equivalents.
+core = 6.x

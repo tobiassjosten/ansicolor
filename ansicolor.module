@@ -1,0 +1,82 @@
+<?php
+// $Id$
+
+/**
+ * @file
+ * ANSI Color - Converts ANSI colors into more web friendly equivalents.
+ */
+
+
+/**
+ * Implementation of hook_init().
+ */
+function ansicolor_init() {
+  drupal_add_css(drupal_get_path('module', 'ansicolor') .'/ansicolor.css');
+}
+
+/**
+ * Implementation of hook_filter().
+ */
+function ansicolor_filter($op, $delta = 0, $format = -1, $text = '', $cache_id = 0) {
+  switch ($op) {
+    case 'list':
+      return array(0 => t('ANSI Color'));
+    case 'description':
+      return t('Converts ANSI colors into more web friendly equivalents.');
+    case 'process':
+      return ansicolor_parse($text);
+    default:
+      return $text;
+  }
+}
+
+/**
+ * Implementation of hook_filter_tips().
+ */
+function ansicolor_filter_tips($delta, $format, $long = FALSE) {
+  return 'ANSI colors will be converted to more web friendly equivalents.';
+}
+
+/**
+ * Parse a string and replace its ANSI sequences with HTML markup.
+ *
+ * @TODO: Make it more intelligent, so that all empty spans are stripped.
+ * @TODO: Code and benchmark a variant which does not use regexp.
+ */
+function ansicolor_parse($text) {
+  return '<span>'. preg_replace('/\e\[([0-9]{0,2}(;[0-9]{1,2})*)m/eU', "'</span><span class=\"' . ansicolor_class('$1') . '\">'", $text) .'</span>';
+}
+
+/**
+ * Convert an ANSI sequence to a classname.
+ */
+function ansicolor_class($string) {
+  static $h = '0';
+  static $f = '37';
+  static $b = '40';
+
+  $string = str_replace(array('[', 'm'), '', $string);
+  $codes = explode(';', $string);
+
+  foreach ($codes as $code) {
+    $code = (int) $code;
+    if ($code == 0 || $code == 1) {
+      $h = $code;
+    }
+    elseif ($code > 29 && $code < 40) {
+      $f = $code;
+    }
+    elseif ($code > 39 && $code < 50) {
+      $b = $code;
+    }
+    elseif ($code > 49 && $code < 60) {
+      $h = 1;
+      $f = $code - 20;
+    }
+    elseif ($code > 59 && $code < 70) {
+      $b = $code - 20;
+    }
+  }
+
+  return 'ansi h'. $h .' f'. $f .' b'. $b;
+}
